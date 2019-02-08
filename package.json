@@ -1,0 +1,32 @@
+{
+  "name": "type-script-sandbox",
+  "version": "1.0.0",
+  "description": "my first in lines in typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guillaume-gomez/typeScriptSandbox.git"
+  },
+  "keywords": [
+    "typescript",
+    "react"
+  ],
+  "author": "Guillaume Gomez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guillaume-gomez/typeScriptSandbox/issues"
+  },
+  "homepage": "https://github.com/guillaume-gomez/typeScriptSandbox#readme",
+  "dependencies": {
+    "@types/react": "^16.8.2",
+    "@types/react-dom": "^16.8.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "source-map-loader": "^0.2.4",
+    "webpack": "^4.29.3"
+  }
+}
