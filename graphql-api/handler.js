@@ -17,5 +17,9 @@ const resolvers = {
   },
 }
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers
+});
+
 exports.query = server.createHandler();
