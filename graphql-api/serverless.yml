@@ -1,8 +1,8 @@
 service: graphql-api # NOTE: update this with your service name
 provider:
   name: aws
+  stage: dev
   runtime: nodejs8.10
-
 functions:
   query:
     handler: handler.query
@@ -12,10 +12,10 @@ functions:
       - http:
           path: graphql
           method: post
-          cors: true
+          cors: false
           integration: lambda-proxy
       - http:
           path: graphql
           method: get 
-          cors: true
+          cors: false
           integration: lambda-proxy
