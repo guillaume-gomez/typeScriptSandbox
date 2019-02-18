@@ -10,12 +10,28 @@ exports.resolvers = {
     me: (_obj, _args, { me }, _info) => {
       return me;
     },
+    messages: () => {
+      return Object.values(messages);
+    },
+    message: (parent, { id }) => {
+      return messages[id];
+    },
     hello: () => 'Hello world!',
   },
 
   User: {
     username: (obj) => {
       return `${obj.firstname} ${obj.lastname}`;
-    }
-  }
+    },
+    messages: user => {
+      return Object.values(messages).filter(
+        message => message.userId === user.id,
+      );
+    },
+  },
+  Message: {
+    user: (obj, args, { me }) => {
+      return obj[message.userId];
+    },
+  },
 };

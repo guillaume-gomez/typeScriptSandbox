@@ -6,6 +6,9 @@ exports.typeDefs = gql`
     user(id: ID!): User
     me: User
     hello: String
+
+    messages: [Message!]!
+    message(id: ID!): Message!
   }
 
   type User {
@@ -13,5 +16,12 @@ exports.typeDefs = gql`
     firstname: String!
     lastname: String!
     username: String!
+    messages: [Message!]
+  }
+
+  type Message {
+    id: ID!
+    text: String!
+    user: User!
   }
 `;
