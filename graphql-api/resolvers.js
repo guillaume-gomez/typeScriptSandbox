@@ -1,4 +1,6 @@
 // This method just inserts the user's first name into the greeting message.
+const { users, messages } = require ('./schema');
+
 exports.resolvers = {
   Query: {
     user: (_obj, { id }, _context, _info) => {
