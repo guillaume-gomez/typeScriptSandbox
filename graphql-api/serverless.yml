@@ -16,6 +16,6 @@ functions:
           integration: lambda-proxy
       - http:
           path: graphql
-          method: get 
+          method: get
           cors: false
           integration: lambda-proxy
