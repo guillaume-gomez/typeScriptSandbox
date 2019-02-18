@@ -50,7 +50,7 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     hello: () => 'Hello world!',
-    me:(obj, args, context) => `Let's try ${args.name}`
+    me:(obj, args, context) => `Hello ${args.name}`
   },
 };
 
