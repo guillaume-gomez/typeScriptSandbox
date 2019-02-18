@@ -1,5 +1,5 @@
 // This method just inserts the user's first name into the greeting message.
-const { users, messages } = require ('./schema');
+const { users, messages } = require ('./mock');
 
 exports.resolvers = {
   Query: {
@@ -13,6 +13,7 @@ exports.resolvers = {
       return me;
     },
     messages: () => {
+        console.log(messages)
       return Object.values(messages);
     },
     message: (parent, { id }) => {
@@ -32,8 +33,8 @@ exports.resolvers = {
     },
   },
   Message: {
-    user: (obj, args, { me }) => {
-      return obj[message.userId];
+    user: (obj, _args, _context, _info) => {
+      return users[obj.userId];
     },
   },
 };
