@@ -1,5 +1,6 @@
 // This method just inserts the user's first name into the greeting message.
 const { users, messages } = require ('./mock');
+const uuidv4 = require('uuid/v4');
 
 exports.resolvers = {
   Query: {
@@ -22,6 +23,21 @@ exports.resolvers = {
     hello: () => 'Hello world!',
   },
 
+  Mutation: {
+    createMessage: (obj, { text }, { me }) => {
+      const id = uuidv4();
+      const message = {
+        id,
+        text,
+        userId: me.id,
+      };
+      messages[id] = message;
+      users[me.id].messageIds.push(id);
+
+      return message;
+    },
+  },
+
   User: {
     username: (obj) => {
       return `${obj.firstname} ${obj.lastname}`;
@@ -32,6 +48,7 @@ exports.resolvers = {
       );
     },
   },
+
   Message: {
     user: (obj, _args, _context, _info) => {
       return users[obj.userId];

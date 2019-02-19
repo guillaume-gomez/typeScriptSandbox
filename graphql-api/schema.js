@@ -11,6 +11,10 @@ exports.typeDefs = gql`
     message(id: ID!): Message!
   }
 
+  type Mutation {
+    createMessage(text: String!): Message!
+  }
+
   type User {
     id: ID!
     firstname: String!
