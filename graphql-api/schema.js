@@ -13,6 +13,7 @@ exports.typeDefs = gql`
 
   type Mutation {
     createMessage(text: String!): Message!
+    deleteMessage(id: ID!): Message!
   }
 
   type User {

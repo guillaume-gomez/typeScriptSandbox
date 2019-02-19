@@ -27,5 +27,7 @@ let messages = {
   },
 };
 
-exports.users = users;
-exports.messages = messages;
+exports.models = {
+  users: users,
+  messages: messages,
+};

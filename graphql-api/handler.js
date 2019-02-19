@@ -1,7 +1,7 @@
 const { ApolloServer, gql } = require('apollo-server-lambda');
 const { resolvers } = require('./resolvers');
 const { typeDefs } = require ('./schema');
-const { users, messages } = require("./mock");
+const { models } = require("./mock");
 
 const server = new ApolloServer({
   typeDefs,
@@ -10,7 +10,8 @@ const server = new ApolloServer({
     headers: event.headers,
     functionName: context.functionName,
     event,
-    me: users[1],
+    models,
+    me: models.users[1],
   }),
 });
 
