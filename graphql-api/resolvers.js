@@ -1,6 +1,6 @@
-const uuidv4 = require('uuid/v4');
+import uuidv4 from 'uuid/v4';
 
-exports.resolvers = {
+export default {
   Query: {
     user: (_obj, { id }, { models }, _info) => {
       return models.users[id];
@@ -12,10 +12,9 @@ exports.resolvers = {
       return me;
     },
     messages: (_obj, _args, { models }) => {
-      console.log(models)
       return Object.values(models.messages);
     },
-    message: (_obj , { id }, { models } ) => {
+    message: (_obj , { id }, { models} ) => {
       return models.messages[id];
     },
     hello: () => 'Hello world!',

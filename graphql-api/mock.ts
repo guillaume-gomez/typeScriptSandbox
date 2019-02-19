@@ -27,7 +27,7 @@ let messages = {
   },
 };
 
-exports.models = {
-  users: users,
-  messages: messages,
+export default {
+  users, 
+  messages
 };

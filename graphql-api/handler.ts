@@ -1,7 +1,7 @@
-const { ApolloServer, gql } = require('apollo-server-lambda');
-const { resolvers } = require('./resolvers');
-const { typeDefs } = require ('./schema');
-const { models } = require("./mock");
+import { ApolloServer, gql } from "apollo-server-lambda";
+import resolvers  from "./resolvers";
+import  typeDefs from "./schema";
+import models  from "./mock";
 
 const server = new ApolloServer({
   typeDefs,
