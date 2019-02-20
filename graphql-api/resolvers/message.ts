@@ -16,22 +16,12 @@ interface Message {
 
 export default {
   Query: {
-    user: (_obj, { id }, { models }, _info) => {
-      return models.users[id];
-    },
-    users: (_obj, _args, { models }, _info) => {
-      return Object.values(models.users);
-    },
-    me: (_obj, _args, { me }, _info) => {
-      return me;
-    },
     messages: (_obj, _args, { models }) => {
       return Object.values(models.messages);
     },
     message: (_obj , { id }, { models} ) => {
       return models.messages[id];
-    },
-    hello: () => 'Hello world!',
+    }
   },
 
   Mutation: {
@@ -57,16 +47,6 @@ export default {
       models.messages = otherMessages;
 
       return message;
-    },
-  },
-
-  User: {
-    username: (obj) => {
-      return `${obj.firstname} ${obj.lastname}`;
-    },
-    messages: (user, _args, { models }) => {
-      let messagesByUser = function(message: Message): boolean { return message.userId === user.id; };
-      return Object.values(models.messages).filter(messagesByUser);
     },
   },
 

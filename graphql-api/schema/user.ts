@@ -1,19 +1,11 @@
 import { gql } from "apollo-server-lambda";
 
 export default gql`
-  type Query {
+  extend type Query {
     users: [User!]
     user(id: ID!): User
     me: User
     hello: String
-
-    messages: [Message!]!
-    message(id: ID!): Message!
-  }
-
-  type Mutation {
-    createMessage(text: String!): Message!
-    deleteMessage(id: ID!): Message!
   }
 
   type User {
@@ -22,11 +14,5 @@ export default gql`
     lastname: String!
     username: String!
     messages: [Message!]
-  }
-
-  type Message {
-    id: ID!
-    text: String!
-    user: User!
   }
 `;
