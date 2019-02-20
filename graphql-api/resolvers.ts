@@ -1,5 +1,19 @@
 import uuidv4 from 'uuid/v4';
 
+interface User {
+  id: string;
+  firstname: string;
+  lastname: string;
+  username: string;
+  messages: Array<Message>
+}
+
+interface Message {
+  id: string;
+  text: string;
+  userId: string;
+}
+
 export default {
   Query: {
     user: (_obj, { id }, { models }, _info) => {
@@ -51,9 +65,8 @@ export default {
       return `${obj.firstname} ${obj.lastname}`;
     },
     messages: (user, _args, { models }) => {
-      return Object.values(models.messages).filter(
-        message => message.userId === user.id,
-      );
+      let messagesByUser = function(message: Message): boolean { return message.userId === user.id; };
+      return Object.values(models.messages).filter(messagesByUser);
     },
   },
 
